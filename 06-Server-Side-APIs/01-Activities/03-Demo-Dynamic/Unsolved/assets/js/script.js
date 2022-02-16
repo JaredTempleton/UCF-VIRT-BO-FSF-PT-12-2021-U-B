@@ -11,7 +11,18 @@ function getApi() {
     .then(function (data) {
       // Use the console to examine the response
       console.log(data);
-      // TODO: Loop through the data and generate your HTML
+
+      for (var i = 0; i < data.length; i++) {
+        
+      var userLogin = document.createElement('h2');
+      var userUrl = document.createElement("p");
+
+      userLogin.textContent = data[i].login;
+      userUrl.textContent = data[i].url;
+
+      userContainer.appendChild(userLogin);
+      userContainer.appendChild(userUrl);
+      }
     });
 }
 fetchButton.addEventListener('click', getApi);
